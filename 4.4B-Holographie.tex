@@ -136,7 +136,30 @@ Grundsätzlich ist die Holografie ein Abbildungsverfahren, welches der Fotografi
 
 \subsection{Aufnahme eines Hologramms}
 
+Die erste Stufe der Holografie ist die Aufnahme des Hologramms. Dabei muss eine Photoplatte mit dem Interferenzwellenfeld von Objekt- und Referenzwelle belichtet werden. Dies ermöglichen wir bei Transmissionshologrammen (Objekt und Lichtquelle befinden sich hier auf der gleichen Seite der Photoplatte) mit einem Strahlteiler, d.h. ein Teilstrahl gelangt unverändert auf die Photoplatte, der andere wird auf das zu holografierende Objekt gelenkt, welches nun ein modifiertes Wellenfeld aussendet. Dieses Objektwellenfeld interferiert auf der Photoplatte mit dem Referenzwellenfeld. Mathematisch bedeutet das: Die Überlagerung der Amplitude des Referenzfeldes $U_0 = A_0 e^{iax} , ~ a = k sin(\delta) $ mit der Amplitude des Objektes $U_1(x,y) = A_1 e^{i \phi (x,y)}$ ist gegeben durch $U(x,y) = A_0 e^{iax} +  A_1 e^{i \phi (x,y)}$. Mit der Intensität $I= |U|^2$ ergibt sich für die Belichtungsenergie $E = I \cdot t$: 
+
+\begin{align*}
+E(x,y) &= t \cdot U^*(x,y) U(x,y) \\
+       &= t \cdot \left( |A_0|^2 + |A_1(x,y)|^2 + A_0 A_1(x,y) e^{-i \phi (x,y) -ax} + A_0 A_1(x,y) e^{i \phi (x,y) -ax} \right) \\
+       &= t \cdot \left( |A_0|^2 + |A_1(x,y)|^2 + A_0 A_1(x,y) cos(\phi (x,y) -ax) \right)
+\end{align*}
+
+Im Interferenzterm $A_0 A_1(x,y) cos(\phi (x,y) -ax)$ ist die vollständige Information über des Objektwellenfeld enthalten. Bei der Holografie in Reflexion bleibt das Prinzip gleich, jedoch wird kein Strahlteiler benötigt und das Objekt wird in Strahlrichtung hinter die Photoplatte positioniert. Das Licht durchdringt die Photoplatte, d.h. ein Teil wird am Objekt reflektiert und trifft von der entgegengesetzten Richtung wieder auf die Photoplatte. Im Gegensatz zum Transmissionshologramm trifft Licht von beiden Seiten auf die Photoplatte, es entsteht also ein sog. Volumenhologramm, bei dem die Dicke der Photoplatte wird zur Speicherung des Hologramms genutzt; es entstehen verschiedene Netzebenen in der Photoplatte.
+
 \subsection{Rekonstruktion eines Hologramms}
+
+Bei der Rekonstruktion des Hologramms wird die belichtete Photoplatte mit der Referenzwelle bestrahlt. Durch Beugung am aufgezeichneten Inferenzmuster entsteht das ursprüngliche Objektwellenfeld sowie das dazu komplex konjugierte Wellenfeld. Beim Transmissionshologramm erfolgt die Betrachtung von hinten, also gegen die Strahlrichtung. Auf der beleuchteten Seite, d.h. hinter dem Hologramm erscheint dann das virtuelle Bild und vor dem Hologramm das reelle Bild. Mit der sog. Amplitudentransparenz $T_A$, die als Quotient aus der Amplitude des direkt hinter der Photoplatte erzeugten Wellenfeldes und Amplitude der Referenzwelle definiert ist und für die im dynamischen Bereich der Schwärzung die Beziehung $|T_A(x,y)| = -m E(x,y) + a$ gilt, folgt für $U(x,y)$:
+
+\begin{align*}
+U(x,y) &= |T_A(x,y)| A_i \\
+       &= (-m E(x,y) + a) A_i \\
+       &= -mt \cdot \left( |A_0|^2 + |A_1(x,y)|^2 + A_0 A_1(x,y) cos(\phi (x,y) -ax) \right) A_i + aA_i
+\end{align*}
+
+Der cos-Term enthält die rekonstruierte und die dazu komplex konjugierte Wellenfront. Erfolgt die Rekonstruktion mit einer Kugelwelle, so gilt die Beziehung
+$$\left( \frac{1}{z_B}- \frac{1}{z_C} \right)_{1,2} = \pm \left( \frac{1}{z_G}- \frac{1}{z_R} \right) $$
+mit den Krümmungsmittelpunkten kugelförmiger Rekonstruktions- ($z_C$) und Referenzwellen ($z_R$) sowie der Bildweite $z_B$ und der Gegenstandsweite $z_G$. 
+Bei Reflexionshologrammen erfolgt Bragg-Reflexion an den Netzebenen des Hologramms, derart dass das reflektierte Wellenfeld dem ursprünglichen Objektwellenfeld entspricht. Aufgrund der Bragg-Bedingung wird nur diejenige Wellenlänge reflektiert, die bei der Aufnahme verwendet wurde, daher handelt es sich bei Reflexionshologrammen um Weißlichthologramme.
 
 \chapter{Durchführung}
 
@@ -146,7 +169,7 @@ Zur Erzeugung der Hologramme werden ein Entwicklerbad, ein Bleichbad sowie zwei 
 
 \section{Justage des Raumfilters}
 
-Bestehend aus einem Mikroskopobjektiv (Numerische Apertur NA = 0,85), einer Lochblende mit 54 µm Durchmesser sowie einer Linse der Brennweite f = 25 cm, wird der Raumfilter in den Strahlengang des Lasers gebracht, so dass der Brennpunkt des aus dem Mikroskopobjektivs austretenden Stahls genau in der Blende liegt und mit dem Brennpunkt der Linse zusammenfällt. Der aus der Blende austretende divergente Strahl wird mittels der Linse gebündelt, wobei mittels eines auf einem Schirm gezeichneten Fadenkreuzes der Strahl ausgerichtet werden konnte und überprüft wurde, dass der Strahldurchmesser in einem Abstand bis etwa 2 Meter konstant 4 cm beträgt.
+Bestehend aus einem Mikroskopobjektiv (Numerische Apertur NA = 0,85), einer Lochblende mit 54 µm Durchmesser sowie einer Sammellinse der Brennweite f = 25 cm, wird der Raumfilter in den Strahlengang des Lasers gebracht, so dass der Brennpunkt des aus dem Mikroskopobjektivs austretenden Stahls genau in der Blende liegt und mit dem Brennpunkt der Linse zusammenfällt. Der aus der Blende austretende divergente Strahl wird mittels der Linse gebündelt, wobei mittels eines auf einem Schirm gezeichneten Fadenkreuzes der Strahl ausgerichtet werden konnte und überprüft wurde, dass der Strahldurchmesser in einem Abstand bis etwa 2 Meter konstant 4 cm beträgt.
 
 \begin{figure}[H]
 \centering
@@ -162,11 +185,13 @@ Im nächsten Schritt kann also das Hologramm aufgenommen werden. Dazu müssen Be
 
 \section{Hologramm eines Punktes}
 
-Um das Hologramm eines Punktes aufnehmen zu können, bringen wir eine weitere Linse in den abgezweigten Strahlengang zwischen Spiegel und Photoplattenhalter, derart dass der Strahldurchmesser am Ort der Photoplatte wieder 4 cm beträgt. D.h. der Brennpunkt der Linse stellt die Punktlichtquelle dar und liegt im abgezweigten Strahlengang. Sobald die Einstellungen beendet sind, kann wieder wie im vorherigen Abschnitt beschrieben belichtet und entwickelt werden. Bei der Rekonstruktion lassen sich zwei überaus helle Punkte beobachten, wieder jeweils unter positivem und negativem Winkel.
+Um das Hologramm eines Punktes aufnehmen zu können, bringen wir eine weitere Linse der Brennweite 35 cm in den abgezweigten Strahlengang zwischen Spiegel und Photoplattenhalter, derart dass der Strahldurchmesser am Ort der Photoplatte wieder 4 cm beträgt. D.h. der Brennpunkt der Linse stellt die Punktlichtquelle dar und liegt im abgezweigten Strahlengang. Sobald die Einstellungen beendet sind, kann wieder wie im vorherigen Abschnitt beschrieben belichtet und entwickelt werden. Bei der Rekonstruktion lassen sich zwei überaus helle Punkte beobachten, wieder jeweils unter positivem und negativem Winkel.
 
-Um später das holographische Abbildungsgesetz verifizieren zu können, muss die Bildweite in Abhängigkeit des Krümmungsradius der Rekonstruktionswelle gemessen werden. Dazu wird zunächst ein Schirm hinter den Photoplattenhalter, in welchem das Punkthologramm eingesetzt ist, aufgestellt, auf dem dadurch der Punkt sichtbar wird. Nun wird eine zusätzliche Linse in den Strahlengang zwischen Sammellinse und Punkthologramm gebracht, mittels derer wir durch Verschiebung verschiedene Krümmungsradien erzeugen können. Der Schirm wird nach jeder Verschiebung der Linse so positioniert, dass der Punkt scharf abgebildet wird, anschließend kann die Bildweite direkt als Abstand zwischen Schirm und Punkthologramm gemessen werden.
+Um später das holographische Abbildungsgesetz verifizieren zu können, muss die Bildweite in Abhängigkeit des Krümmungsradius der Rekonstruktionswelle gemessen werden. Dazu wird zunächst ein Schirm hinter den Photoplattenhalter, in welchem das Punkthologramm eingesetzt ist, aufgestellt, auf dem dadurch der Punkt sichtbar wird. Nun wird die Linse mit 35 cm Brennweite in den Strahlengang zwischen Sammellinse und Punkthologramm gebracht, mittels derer wir durch Verschiebung verschiedene Krümmungsradien erzeugen können. Der Schirm wird nach jeder Verschiebung der Linse so positioniert, dass der Punkt scharf abgebildet wird, anschließend kann die Bildweite direkt als Abstand zwischen Schirm und Punkthologramm gemessen werden.
 
 \section{Objektholografie}
+
+Zur Objektholografie verwenden wir eine Münze
 
 \chapter{Auswertung}
 
