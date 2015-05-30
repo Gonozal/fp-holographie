@@ -7,6 +7,8 @@
 *.ist
 *.acn
 *.acr
+*.fls
+*.el
 *.alg
 *.bbl
 *.blg
@@ -23,6 +25,7 @@
 *.pdf
 *.out
 *.synctex.gz
+*.fdb_latexmk
 
 *.DS_Store
 *.xlsx
