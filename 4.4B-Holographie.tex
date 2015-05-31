@@ -9,6 +9,7 @@
 % Input Dokument hat das Encoding UTF-8
 \usepackage[utf8]{inputenc}
 % Wichtiges Paket für Links und verlinktes Inhaltsverzeichnis
+\usepackage{hhline}
 \usepackage[ngerman]{hyperref}
 % Paket für Fußnoten
 \usepackage[stable]{footmisc}
@@ -22,8 +23,28 @@
 
 
 \pgfkeys{%
-  /pgfplots/seperators/.style={%
-    /pgf/number format/use comma
+  /pgfplots/default/.style={%
+    /pgf/number format/use comma,
+    legend pos=north west,
+    width=0.9\linewidth,
+    height=0.7\linewidth,
+    scale only axis,
+    xmin=0,
+    ymin=0,
+    grid=both,
+    tick align=outside,
+    tickpos=left,
+    minor x tick num=3,
+    minor y tick num=4,
+    minor grid style={dotted,thin},
+    x tick label style={/pgf/number format/.cd,%
+      set thousands separator={},
+      set decimal separator={,}
+    },%
+    y tick label style={/pgf/number format/.cd,%
+      set thousands separator={},
+      set decimal separator={,}
+    },%
   }
 }
 
@@ -246,6 +267,87 @@ Somit ergibt sich im Vergleich mit $x_{max}$, dass 13 Minima auftreten, dies ent
 
 \section{Punktholografie}
 
+Für Hologramme gibt es analog zu Linsen ein Abbildungsgesetz:
+
+$$\left( \frac{1}{z_B} -\frac{1}{z_C} \right)_{1,2} = \pm \left( \frac{1}{z_G}
+  -\frac{1}{z_R} \right) \cite{anleitung}$$
+
+Mit 
+\begin{itemize}
+  \item $z_B$: Bildweite
+  \item $z_C$: Krümmungsradius der Rekonstructionswelle
+  \item $z_G$: Gegenstandsweite
+  \item $z_R$: Krümmungsradius der Referenzwelle
+\end{itemize}
+Da zur Aufnahme und Rekonstruktion des Hologramms ein kollimierter Laserstrahl
+benutzt wird, ist $z_R = \infty$. Die Gegenstandsweite $z_G$ ist gleich dem
+Abstand des aufgenommenen Punktobjekts von der Photoplatte, was gerade der
+Brennweite der verwendeten Linse entspricht: $z_G = f_0 = 35cm$. $z_C$ errechent
+sich aus dem Abstand der Linse von der Photoplatte $z_C = f - d$.
+
+Mit Hilfe von $z_R = \infty$ lässt sich das Holographische Abbildungsgesetz
+umstellen zu 
+
+$$z_B = \left(\pm\frac{1}{z_G}+\frac{1}{z_C}\right)^{-1}$$
+
+\begin{table}[H]
+  \begin{center}
+  \begin{tabular}{r|r}
+    $d$ in $cm$ & $z_B$ in $cm$ \\ \hhline{=|=}
+    3,8         & 16,2          \\ \hline
+    6,7         & 15,6          \\ \hline
+    10,0        & 14,5          \\ \hline
+    12,4        & 13,6          \\ \hline
+    16,0        & 12,3          \\ \hline
+    18,6        & 11,5          \\ \hline
+    20,9        & 10,4          \\ \hline
+    25,1        & 7,4           \\
+	\end{tabular}
+    \caption{Messwerte zur Überprüfung des Abbildungsgesetzes. $z_B$ steht
+      hierbei für die Distanz des reellen Bildes, $d$ für den Abstand der
+      Linse. Die Messunsicherheit für $d$ beträgt $2mm$, die Unsicherheit für
+      $z_B$ $5mm$.}
+  \end{center}
+\end{table}
+
+Auf Grund der Verwendung eines Zollstocks zur Abstandsmessung und gewissen
+Unsicherheiten was die genaue Position der Symmetrieachse der Linse und der
+Photoplatte angeht, haben wir als Fehler für $d$ $2 mm$ angenommen. Beim
+Bestimmen der Bildweite kommt zusätzlich noch ein Interpretationspielraum
+hinzu, was die Schärfe des Lichtpunktes angeht, weswegen wir den Fehler für
+$z_B$ einen Fehler von $5mm$ angesetzt haben.
+
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis}[
+  default,
+  title={Überprüfung des Abbildungsgesetzes},
+  xlabel=$Z_C$ in $cm$,
+  ylabel=$Z_B$ in $cm$,
+  xmin=8,
+  xmax=32,
+  ymin=6,
+  height=0.4\linewidth,
+]
+\addplot[
+  red, thick, only marks, mark=x, mark size=2pt, error bars/.cd, 
+  y dir=both, y fixed=0.5, x dir=both, x fixed=0.2
+] table[x expr=(35-\thisrowno{0}), y index=1] {data/abbildungsgesetz.txt};
+\addlegendentry{Reelles Bild}
+\addplot[teal, thick, mark=x, mark size=0pt, samples=20, domain=-0:35] {(1/35+1/x)^(-1)};
+\addlegendentry{Theoretischer Verlauf}
+\end{axis}
+\end{tikzpicture}
+    \caption{Gemessene Werte für die Bildweite sowie der theoretische
+      Verlauf. Die Theorie deckt sich hier sehr gut mit den
+      aufgenommenen Daten.}
+\end{figure}
+
+Der Vergleich zwischen theoretischen Werten für die Bildweite des reellen Bildes
+und gemessenen Werten scheint das verwendete Abbildungsgesetz zu
+bestätigen. Allerdings wäre es vom Vorteil gewesen, zur weiteren Überprüfung
+noch die Lage des Virtuellen Bildes aufzunehmen.
+
 \section{Objektholografie}
 Das von der Gedenkmünze angefertigte Hologramm lässt sich analog zu den
 vorherigen Hologrammen mit Hilfe eines Lasers sichtbar machen. Bei Betrachtung
@@ -300,7 +402,7 @@ $cm$ liegen.
 % Eintrag fürs Inhaltsverzeichnis
 \newpage
 \begin{thebibliography}{100}
-%  \bibitem{anleitung} Versuchsanleitung Magnetfeldmessung, heruntergeladen am 15.2.2015 von der Homepage des IKP der TU Darmstadt
+  \bibitem{anleitung} Versuchsanleitung zum Versuch Holographie, heruntergeladen am 09.05.2015 von der Homepage des IAP der TU Darmstadt
 \end{thebibliography}
 \end{document}
 
