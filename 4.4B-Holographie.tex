@@ -245,23 +245,57 @@ mit dem Strahldurchmesser D = 4 cm und der Brennweite bzw. dem Abstand der Linse
 Nun betrachten wir die Nullstellen der Besselfunktion, da diese die Intensitätsminima und somit die Zahl der Beugungsordnungen angeben. Die Nullstellen lauten: 
 
 \begin{center}
-$x_1 = 1,22 \pi$ \\
-$x_2 = 2,23 \pi$ \\
-$x_3 = 3,24 \pi$ \\
-$x_4 = 4,24 \pi$ \\
-$x_5 = 5,24 \pi$ \\
-$x_6 = 6,24 \pi$ \\
-$x_7 = 7,24 \pi$ \\
-$x_8 = 8,24 \pi$ \\
-$x_9 = 9,25 \pi$ \\
-$x_{10} = 10,25 \pi$ \\
-$x_{11} = 11,25 \pi$ \\
-$x_{12} = 12,25 \pi$ \\
+$x_1 = 1,22 \pi$     \\
+$x_2 = 2,23 \pi$     \\
+$\vdots$             \\
 $x_{13} = 13,25 \pi$ \\
 $x_{14} = 14,25 \pi$
 \end{center}
 
 Somit ergibt sich im Vergleich mit $x_{max}$, dass 13 Minima auftreten, dies entspricht 12 Beugungsordnungen. Von dem Idealzustand, dass lediglich die nullte Beugungsordnung im austretenden Strahl enthalten ist, kann also keine Rede sein.
+
+\subsection{Abschätzung der Anzahl schwingungsfähiger Moden}
+Selbst wenn nur eine Emissionslinie in einem Laser angeregt wird, ist das
+emmitierte Licht nicht immer monochromatisch. Auf Grund der Heisenbergschen
+Unschärferelation bzw.\ der quantenmeschanischen Tatsache, dass Operatoren im
+allgemeinen nicht miteinander kommutieren, gibt es eine gewisse natürliche
+Linienbreite bei der Emission. In Lasern überwiegt allerdings in der Regel durch
+die hohe Betriebstemperatur - in Unserem Versuch ist $T = 1000K$ - eine
+Linienverbreitung auf Grund des Dopplereffekts. Atome bewegen sich auf Grund
+ihrer thermischen Energie im inneren des Lasers in allen 3 Raumrichtungen, wobei
+eine Bewegung entlang der Emissionsachse des Lasers eine Veränderung der
+Frequenz des emmitierten Lichts zur Folge hat.
+
+Die Geschwindigkeit der Atome kann mit der eindimensionalen Boltzmannverteilung
+beschrieben werden:
+$$p(\vec{v}) = \left(\frac{m}{2\pi k_B T}\right)^{1/2} \cdot e^{-\frac{m
+    \vec{v}^2}{2k_B T}} \cite{boltzmann}$$
+Zusammen mit der durch den Dopplereffekt verursachten Frequenzverschiebung:
+$$f = \left ( \frac {c}{c + v_{s}} \right ) f_0 \Leftrightarrow v_s=c\left( \frac{f_0}{f}-1 \right)$$
+ergibt sich die Boltzmannverteilung in Abhängigkeit der Geschwindigkeit:
+
+$$p(f) = \left(\frac{m}{2\pi k_B T}\right)^{1/2} \cdot e^{-\frac{m
+    c^2\left( \frac{f_0}{f}-1 \right)^2}{2k_B T}}$$
+
+Zur Bestimmung der schwingungsfähigen Moden verwenden wir das Full width at half
+maximum (FWHM), welches in diesem Fall gegeben ist durch 
+
+$$\frac{1}{2}p(f_0) = p(f_0 - \frac{1}{2} FWHM) $$
+
+Einsetzen der umgeformten Boltzmannverteilung ergibt
+
+$$\left(\frac{m}{8\pi k_B T}\right)^{1/2} = \left(\frac{m}{2\pi k_B
+    T}\right)^{1/2} \cdot e^{-\frac{m c^2\left( \frac{f_0}{f_0 -
+        \frac{1}{2}FWHM}-1 \right)^2}{2k_B T}}$$
+
+Unter Verwendung der Betriebstemperatur des Lasers $T = 1000K$, der
+Grundfrequenz $f_0 = \frac{c}{\lambda_0} = 474THz$ und dem Modenabstand $\Delta
+f = 1364MHz$ erhalten wir für die Zahl der schwingungsfähigen Moden
+$$n = \frac{FWHM}{\Delta f} = 1,75 \approx 2$$
+
+Es kann also angenommen werden, dass im verwendeten Laser zwei Moden
+schwinngungsfähig sind.
+
 
 \section{Holographisches Gitter}
 
@@ -363,9 +397,9 @@ Münze durch das zuvor angefertigte Hologramm austauschten.
 
 Die Tatsache, dass ein Bild des Hologramms selbst mit Tageslicht klar zu
 erkennen ist, lässt darauf schließen, dass die Dicke des Hologramms weniger als
-$1\mu m$ beträgt. Obwohl Tageslicht gemeinhin als Inkohärent bezeichnet wird,
-besitzt es eine Kohärenzlänge von
-$l_c \approx \frac{2160\mu m K}{T} \approx 0,34\mu m$. Somit ist auch
+$600 nm$ beträgt. Obwohl Tageslicht oft als Inkohärent bezeichnet wird,
+besitzt es eine Kohärenzlänge von in etwa
+$l_c \approx \frac{3600\mu m K}{T} \approx 567 m$ \cite{blackbodycoherence}. Somit ist auch
 ersichtlich, dass zwar eine Betrachtung des Hologramms mit Hilfe von Tageslicht
 möglich ist, zur Anfertigung allerdings eine Lichtquelle mit größerer räumlicher
 und zeitlicher Kohärenz nötig ist, da hier die Größen im Bereich von etlichen
@@ -390,7 +424,7 @@ $cm$ liegen.
     \caption{Hologramm des Hologramms der Münze}
     \label{fig:gedenkholokopie}
   \end{subfigure}
-  \caption{Objekt, Hologramm und Kopie des Hologramms. Mit dem Bloßen Auge waren
+  \caption{Objekt, Hologramm und Kopie des Hologramms. Mit dem bloßen Auge waren
   beide Hologramme noch besser zu erkennen, sogar die Schrift der Münze war leserlich.}\label{fig:genkhologramme}
 \end{figure}
 
@@ -403,6 +437,10 @@ $cm$ liegen.
 \newpage
 \begin{thebibliography}{100}
   \bibitem{anleitung} Versuchsanleitung zum Versuch Holographie, heruntergeladen am 09.05.2015 von der Homepage des IAP der TU Darmstadt
+  \bibitem{blackbodycoherence} The coherence length of black-body
+radiation by Axel Donges, 1998: \url{http://hank.uoregon.edu/teaching-modules/Broadband-Interferometer/BBcoherence.pdf}
+  \bibitem{boltzmann} Abteilung theoretische Chemie der Goethe-Universität
+    Frankfurt von Prof. J. Wachtveitl: \url{http://www.theochem.uni-frankfurt.de/femtochem/lectures/PC2_Sem/Handouts-PCII-WS-12-13/Zotko_Maxwell-Boltzmann%20Verteilung.pdf}
 \end{thebibliography}
 \end{document}
 
