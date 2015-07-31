@@ -231,7 +231,7 @@ entwickelt.
 
 \section{Raumfilter und He-Ne-Laser}
 
-Die Funktion des Raumfilters lässt sich in drei Bereiche gliedern: Zum einen wird der Strahldurchmesser auf das benötigte Maß von etwa 4 cm aufgeweitet, da der Laser mit einem Strahldurchmesser von lediglich 1-2 mm emittiert. Zum andern wird die Dispersion der Linsen ausgenutzt, um infrarotes Licht herauszufiltern. Dadurch, dass infrarotes Licht weniger stark gebrochen wird, kann es nämlich nicht durch die Blende gelangen, die in den Brennpunkt für den erwünschten sichtbaren Anteil positioniert wird. Zudem absorbieren die Linsen einen Teil des infraroten Lichtes, welches somit insgesamt sehr effektiv herausgefiltert wird. Zuletzt wirkt der Raumfilter als Beugungsordnungsfilter. Durch die sehr geringe Größe der Blende von 54 µm wird die Raumunschärfe des Laserstrahls gering (deswegen heißt der Raumfilter Raumfilter), wodurch nach der Heisenbergsche Unschärferelation die Impulsunschärfe zunimmt, was in einer Glättung bzw. Homogenisierung des Lichtstrahls resultiert. Dadurch werden die negativen Auswirkungen durch eventuell verschmutzte Linsen auf die Kohärenz verringert und im Idealfall gelangt von den verschiedenen räumlich getrennten Beugungsordnungen nur die 0. durch den Raumfilter. Die tatsächliche Anzahl der transmittierten Beugungsordnungen wird im Folgenden berechnet.
+Die Funktion des Raumfilters lässt sich in drei Bereiche gliedern: Zum einen wird der Strahldurchmesser auf das benötigte Maß von etwa 4 cm aufgeweitet, da der Laser mit einem Strahldurchmesser von lediglich 1-2 mm emittiert. Zum andern wird die Dispersion der Linsen ausgenutzt, um infrarotes Licht herauszufiltern. Dadurch, dass infrarotes Licht weniger stark gebrochen wird, kann es nämlich nicht durch die Blende gelangen, die in den Brennpunkt für den erwünschten sichtbaren Anteil positioniert wird. Zudem absorbieren die Linsen einen Teil des infraroten Lichtes, welches somit insgesamt sehr effektiv herausgefiltert wird. Zuletzt wirkt der Raumfilter als Beugungsordnungsfilter. Durch die sehr geringe Größe der Blende von 54 µm wird die Raumunschärfe des Laserstrahls gering (deswegen heißt der Raumfilter \textcolor{blue}{Raumfrequenzfilter}), wodurch nach der Heisenbergsche Unschärferelation die Impulsunschärfe zunimmt, was in einer Glättung bzw. Homogenisierung des Lichtstrahls resultiert. Dadurch werden die negativen Auswirkungen durch eventuell verschmutzte Linsen auf die Kohärenz verringert und im Idealfall gelangt von den verschiedenen räumlich getrennten Beugungsordnungen nur die 0. durch den Raumfilter. Die tatsächliche Anzahl der transmittierten Beugungsordnungen wird im Folgenden berechnet.
 
 Ausgehend von der Beugung an einer Lochblende ergibt sich hinter der Blende die Intensitätsverteilung
 
@@ -345,7 +345,7 @@ $$z_B = \left(\pm\frac{1}{z_G}+\frac{1}{z_C}\right)^{-1}$$
     \caption{Messwerte zur Überprüfung des Abbildungsgesetzes. $z_B$ steht
       hierbei für die Distanz des reellen Bildes, $d$ für den Abstand der
       Linse. Die Messunsicherheit für $d$ beträgt $2mm$, die Unsicherheit für
-      $z_B$ $5mm$.}
+      $z_B$ $5mm$. Gemessen wurde die erste positive Beugungsordnung}
   \end{center}
 \end{table}
 
@@ -354,7 +354,11 @@ Unsicherheiten was die genaue Position der Symmetrieachse der Linse und der
 Photoplatte angeht, haben wir als Fehler für $d$ $2 mm$ angenommen. Beim
 Bestimmen der Bildweite kommt zusätzlich noch ein Interpretationspielraum
 hinzu, was die Schärfe des Lichtpunktes angeht, weswegen wir den Fehler für
-$z_B$ einen Fehler von $5mm$ angesetzt haben.
+$z_B$ einen Fehler von $5mm$ angesetzt haben. \textcolor{blue}{Leider kam es
+  während der Durchführung zu einem Missverständniss, weswegen nur die erste
+  positive Beugungsordnung vermessen wurde. Obwohl lediglich die erste
+  Beugungsordnung vermessen wurde, konnten wir zusätzlich noch 
+  2 weitere Beugungsordnungen beobachten.}
 
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -377,7 +381,8 @@ $z_B$ einen Fehler von $5mm$ angesetzt haben.
 \addlegendentry{Theoretischer Verlauf}
 \end{axis}
 \end{tikzpicture}
-    \caption{Gemessene Werte für die Bildweite sowie der theoretische
+    \caption{Gemessene Werte für die Bildweite \textcolor{blue}{der ersten
+        positiven Beugungsordnung} sowie der theoretische
       Verlauf. Die Theorie deckt sich hier sehr gut mit den
       aufgenommenen Daten.}
 \end{figure}
